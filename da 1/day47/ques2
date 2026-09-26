@@ -1,0 +1,39 @@
+//Find the longest word in a sentence.
+#include <stdio.h>
+
+int main() {
+    char str[200], longest[100];
+    int i, start = 0, len = 0;
+    int maxLen = 0, maxStart = 0;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; ; i++) {
+        if (str[i] != ' ' && str[i] != '\0' && str[i] != '\n') {
+            len++;
+        } else {
+            if (len > maxLen) {
+                maxLen = len;
+                maxStart = start;
+            }
+
+            len = 0;
+            start = i + 1;
+
+            if (str[i] == '\0' || str[i] == '\n')
+                break;
+        }
+    }
+
+    for (i = 0; i < maxLen; i++) {
+        longest[i] = str[maxStart + i];
+    }
+
+    longest[maxLen] = '\0';
+
+    printf("Longest word: %s\n", longest);
+    printf("Length: %d\n", maxLen);
+
+    return 0;
+}
