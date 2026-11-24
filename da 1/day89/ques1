@@ -1,0 +1,25 @@
+//Show that enums store integers by printing assigned values.
+#include <stdio.h>
+
+enum Numbers
+{
+    ONE = 10,
+    TWO = 20,
+    THREE = 30
+};
+
+int main()
+{
+    enum Numbers n;
+
+    n = ONE;
+    printf("Value of ONE = %d\n", n);
+
+    n = TWO;
+    printf("Value of TWO = %d\n", n);
+
+    n = THREE;
+    printf("Value of THREE = %d\n", n);
+
+    return 0;
+}
